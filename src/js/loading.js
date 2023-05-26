@@ -23,7 +23,7 @@ export function loaded() {
   refs.loaderText.classList.add('is-hidden');
 }
 
-export function loadError() {
+export function loadError(e) {
   Notify.failure('Oops! Something went wrong! Try reloading the page!');
   loaded();
 }

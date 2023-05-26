@@ -1,5 +1,4 @@
 import { refs } from './refs.js';
-import { loaded } from './loading.js';
 
 export function populateCatInfo({ url, breed }) {
   refs.catImg.src = `${url}`;
@@ -7,7 +6,6 @@ export function populateCatInfo({ url, breed }) {
   refs.breedDescription.textContent = `${breed.description}`;
   refs.breedTemtText.insertAdjacentHTML('beforeend', `${breed.temperament}`);
   refs.infoConteiner.classList.remove('is-hidden');  
-  loaded();
 }
 
 export function populateSelect(breeds) {

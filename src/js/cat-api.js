@@ -12,20 +12,31 @@ const option = {
 };
 
 export function fetchBreed(breedId) {
-  return fetch(`${BASE__URL}/breeds/${breedId}`, option).then(res =>
-    res.json()
+  return fetch(`${BASE__URL}/breeds/${breedId}`, option).then(res => {
+    if(!res.ok){
+      throw new Error
+    }
+    return res.json()}
   );
 }
 
 export function fetchBreeds() {
   loadingBreeds();
-  return fetch(`${BASE__URL}/breeds`, option).then(res => res.json());
+  return fetch(`${BASE__URL}/breeds`, option).then(res => {
+    if(!res.ok){
+      throw new Error
+    }
+    return res.json()});
 }
 
 export function fetchCatByBreed(breedId) {
   refs.infoConteiner.classList.add('is-hidden');
   loading();
   return fetch(`${BASE__URL}/images/search?breed_ids=${breedId}`, option).then(
-    res => res.json()
+    res => {
+      if(!res.ok){
+        throw new Error
+      }
+      return res.json()}
   );
 }
