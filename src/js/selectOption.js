@@ -12,15 +12,10 @@ export function selectOption(e) {
     return;
   }
 
-  const urlImg = fetchCatByBreed(selectValue);
-  const breed = fetchBreed(selectValue);
-  Promise.all([urlImg, breed])
-    .then(res => {
-      if (Object.keys(res[1]).length === 0) {
-        throw new Error();
-      }
-      populateCatInfo({ url: res[0][0].url, breed: res[1] });
+  fetchCatByBreed(selectValue).then(res => {
+      const url =  res[0].url;
+      const breed = res[0].breeds[0];
+      populateCatInfo({ url, breed});
       loaded();
-    })
-    .catch(loadError);
+  }).catch(loadError)
 }

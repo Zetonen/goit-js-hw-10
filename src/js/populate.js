@@ -1,7 +1,6 @@
 import { refs } from './refs.js';
 
 export function populateCatInfo({ url, breed }) {
-  console.log(breed);
   refs.catImg.src = `${url}`;
   refs.breedTitle.textContent = `${breed.name}`;
   refs.breedDescription.textContent = `${breed.description}`;

@@ -8,7 +8,9 @@ const DEBOUNCE_DELAY = 300;
 
 refs.serchInput.addEventListener('change', selectOption);
 
-fetchBreeds().then(res => {
-    loadedBreeds()
+fetchBreeds()
+  .then(res => {
+    loadedBreeds();
     populateSelect(res);
-}).catch(loadError) ;
+  })
+  .catch(loadError);
